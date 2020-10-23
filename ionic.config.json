@@ -1,0 +1,7 @@
+{
+  "name": "Rotblau-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
