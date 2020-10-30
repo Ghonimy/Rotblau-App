@@ -1,32 +1,94 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Radio Rotblau
-    </ion-title>
+    <ion-title> Radio Rotblau </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-<ion-card>
-  <ion-card-header class="ion-text-center"> 
-    <div>
-      <ion-img  src="../../assets/pic.png"></ion-img>
-    </div>
-    
-    <ion-card-title class="ion-padding">Radio Rotblau</ion-card-title>
-    <ion-card-subtitle>Live Studio</ion-card-subtitle>
-  </ion-card-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header class="ion-text-center">
+      <div>
+        <ion-img src="../../assets/pic.png"></ion-img>
+      </div>
 
-  <ion-card-content class="ion-text-center">
-    <ion-icon *ngIf="!isPlaying" (click)="playAudio()" size="large" name="play-outline"></ion-icon>
-    <ion-icon *ngIf="isPlaying" (click)="stopAudio()" size="large" name="pause-outline"></ion-icon>
-    <ion-progress-bar *ngIf="isPlaying" type="indeterminate"></ion-progress-bar>
+      <ion-card-title class="ion-padding">Radio Rotblau</ion-card-title>
+      <ion-card-subtitle>Live Studio</ion-card-subtitle>
+    </ion-card-header>
 
-  </ion-card-content>
-  
-  
-  
-  
-  
-</ion-card>
+    <ion-card-content class="ion-text-center">
+      <ion-icon
+        *ngIf="!isPlaying"
+        (click)="playAudio()"
+        size="large"
+        name="play-outline"
+      ></ion-icon>
+      <ion-icon
+        *ngIf="isPlaying"
+        (click)="stopAudio()"
+        size="large"
+        name="pause-outline"
+      ></ion-icon>
+      <ion-progress-bar
+        *ngIf="isPlaying"
+        type="indeterminate"
+      ></ion-progress-bar>
+    </ion-card-content>
+  </ion-card>
+  <h2 class="ion-padding">Letzte News</h2>
+
+  <ion-list class="first-animate-left">
+    <ion-list-header>
+      <ion-avatar
+        ><ion-img src="../../assets/circle-cropped.png"></ion-img
+      ></ion-avatar>
+      <ion-label class="ion-padding"><b>radio-rotblau.ch&copy;</b></ion-label>
+      <div>
+        <p class="leftt">{{firstPost? firstPost.published : 'no-title'}}</p>
+      </div>
+    </ion-list-header>
+    <ion-item class="ion-margin ion-margin-start">
+      <ion-text class="lineheight ion-margin-start"
+        >{{firstPost ? firstPost.lead : 'test'}}</ion-text
+      >
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="animate-right">
+    <ion-list-header>
+      <ion-avatar
+        ><ion-img src="../../assets/circle-cropped.png"></ion-img
+      ></ion-avatar>
+      <ion-label class="ion-padding"><b>radio-rotblau.ch&copy;</b></ion-label>
+      <div>
+        <p class="leftt">{{secondPost? secondPost.published : 'no-title'}}</p>
+      </div>
+    </ion-list-header>
+    <ion-item class="ion-margin">
+      <ion-text class="lineheight"
+        >{{secondPost ? secondPost.lead : 'test'}}</ion-text
+      >
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="third-animate-left">
+    <ion-list-header>
+      <ion-avatar
+        ><ion-img src="../../assets/circle-cropped.png"></ion-img
+      ></ion-avatar>
+      <ion-label class="ion-padding"><b>radio-rotblau.ch&copy;</b></ion-label>
+      <div>
+        <p class="leftt">{{secondPost? secondPost.published : 'no-title'}}</p>
+      </div>
+    </ion-list-header>
+    <ion-item class="ion-margin">
+      <ion-text class="lineheight"
+        >{{secondPost ? secondPost.lead : 'test'}}</ion-text
+      >
+    </ion-item>
+  </ion-list>
+
+  <!--Footer-->
+  <ion-footer>
+    <ion-img src="../../assets/ion-footer.jpg"></ion-img>
+  </ion-footer>
 </ion-content>

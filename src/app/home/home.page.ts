@@ -1,12 +1,18 @@
+
 import { Component, OnInit } from '@angular/core';
+//import { HTTP } from '@ionic-native/http/ngx';
+
+import { Howl } from 'howler';
 
 //import { Media, MediaObject } from '@ionic-native/media/ngx';
-//import { HttpClient } from '@angular/common/http';
 
+import { FetchPosts} from './fetchPosts.service';
+//import {Post} from './Post.interface';
+//import { Animation, AnimationController } from '@ionic/angular';
 //import { StreamingMediaOriginal, StreamingAudioOptions } from '@ionic-native/streaming-media';
 ////import { Platform } from '@ionic/angular';
 
-import { Howl } from 'howler';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -16,12 +22,29 @@ export class HomePage implements OnInit{
   //@ViewChild('audioplayer') aaa: any;
   isPlaying: boolean;
   private sound: Howl;
+  firstPost = null;
+  secondPost = null;
+  thirdPost = null;
   
-  constructor() {
+  
+  constructor(private postsService: FetchPosts) {
 
   }
 
     ngOnInit () {
+      
+      this.postsService.fetchPosts();
+      
+      this.postsService.posts.subscribe((posts) => {
+        this.firstPost = posts[0];
+        this.secondPost = posts[1];
+        this.thirdPost = posts[2];
+      });
+      
+      //const animation: Animation = this.animationCtrl.create()
+        //  .addElement(document.querySelector('.animate-left'))
+          //.duration(2000).fromTo('opacity', '1', '0.5');
+
       // this.http.get<any>('https://api.rotblau.app/streams/').subscribe((data) => {
        // this.url = data.data.item[0].url;
        // let audio = new Howl({
@@ -63,9 +86,13 @@ export class HomePage implements OnInit{
        volume: 0.8,
        html5: true,
        preload: true,
-       usingWebAudio: true
+       usingWebAudio: true,
        //autoplay: true,
+       //autoUnlock: true,
+       //autoSuspend: false
       });
+
+      
       //console.log(this.sound.playing());
       this.sound.play();
     //this.aaa.play();
@@ -79,6 +106,11 @@ export class HomePage implements OnInit{
     this.sound.stop();
     this.isPlaying = false;
     console.log(this.sound.playing());
+
+    
+
+    //this.http.get<Post>(this.api).subscribe(dataa => console.log(dataa.data.items[]));
    }
+
   }
 

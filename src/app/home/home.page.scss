@@ -31,3 +31,44 @@ div {
   align-items: center;
   justify-content: center;
 }
+
+.lineheight {
+  line-height: 1.7;
+}
+
+.leftt {
+  position: absolute;
+  left: 65px;
+  top: 60px;
+  font-size: 13px;
+  color: grey
+}
+.first-animate-left {
+  animation: animate-left 1.5s ease-in
+}
+
+.third-animate-left {
+  animation: animate-left 2s ease-in
+}
+
+.animate-right {
+  animation: animate-right 1.5s ease-in
+}
+
+@keyframes animate-left {
+  0% {
+    transform: translateX(-100%)
+  }
+  100% {
+    transform: translateX(0)
+  }
+}
+
+@keyframes animate-right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0)
+  }
+}

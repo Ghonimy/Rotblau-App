@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+//import { FetchPosts } from './fetchPosts.service';
 //import { Media } from '@ionic-native/media/ngx';
 //import { StreamingMediaOriginal } from '@ionic-native/streaming-media';
 //import { HttpClientModule } from '@angular/common/http';
@@ -15,9 +16,9 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    HomePageRoutingModule 
   ],
   declarations: [HomePage],
-  //providers: [HttpClientModule]
+  //providers: [FetchPosts]
 })
 export class HomePageModule {}
